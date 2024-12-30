@@ -1,0 +1,34 @@
+body {
+    background-color: #C2DCF2;
+}
+/*aec6cf*/
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#form form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+#city-list {
+    width: fit-content;
+    height: fit-content;
+    z-index: 1;
+    background-color: white;
+    display: none;
+}
+
+.city-list__elem {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.city-list__elem:hover {
+    background-color: gray;
+}

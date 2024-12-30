@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="./index.css" rel="stylesheet">
+    <script src="events/events.js"></script>
+</head>
+<body>
+    <section id="form">
+        <h1>Weather Today⛅</h1>
+        <form>
+            <input id="city-name" type="text" placeholder="City name" onkeyup="findCity(event)" required>
+            <div id="city-list"></div>
+            <input type="submit" value="Check Weather" onclick="fetchWeatherData(event)">
+        </form>
+    </section>
+    <section id="weather-info"></section>
+</body>
+</html>
