@@ -15,4 +15,5 @@ def main(city: str, api_key: str) -> bytes:
 
 if __name__ == "__main__":
     load_dotenv()
-    main(sys.argv[1], os.getenv("WEATHER_API_KEY"))
+    main(sys.argv[1], os.getenv("WEATHER_API_KEY")) # sys.argv[1] == City name
+     

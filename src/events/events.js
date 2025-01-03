@@ -1,8 +1,6 @@
 const { spawn } = require('child_process');
-const { error } = require('console');
 
-
-const cities = [
+const cities = [ // Desired result here is all cities in the world, maybe will be taken from some database.
     {
         'id': 1,
         'name': 'Челябинск',
@@ -61,20 +59,20 @@ function putCityNameInInput(event) {
 
 function fetchWeatherData(event) {
     event.preventDefault();
-    const partialCityName = document.getElementById('city-name').value;
+    const cityName = document.getElementById('city-name').value;
     let proc;
     if (process.platform === 'win32') {
-        proc = spawn('py ../buisnesslogic/weather.py', [partialCityName])
+        proc = spawn('py', [__dirname + '/buisnesslogic/weather.py', cityName])
     } else {
-        proc = spawn('python3 ../buisnesslogic/weather.py', [partialCityName])
+        proc = spawn('python3', [__dirname + '/buisnesslogic/weather.py', cityName])
     }
     proc.stdout.on('data', (data) => {
-        console.log(data);
-    })
-    proc.error.on('data', (data) => {
-        console.error(error)
+        console.log(JSON.parse(data.toString("utf8")));
     })
     proc.on('close', (code) => {
         console.log("Exited with status code: ", code)
+    })
+    proc.stderr.on('data', (data) => {
+        console.error(data)
     })
 }
